@@ -1,7 +1,7 @@
 import requests
 
-from exceptions import APIError, APIAuthenticationError
-import config
+from ..exceptions import APIError, APIAuthenticationError
+from .. import config
 
 
 class Wrapper:

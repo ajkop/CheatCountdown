@@ -3,7 +3,7 @@ from itertools import permutations
 
 import enchant
 
-from api_wrapper import Wrapper
+from .api_wrapper import Wrapper
 
 
 class Letters:

@@ -1,6 +1,5 @@
-from flask import Flask, send_from_directory, render_template , request , redirect, url_for, flash , jsonify
+from .endpoints import app
 
-app = Flask(__name__)
+app.config.from_pyfile('config.py')
 
-if __name__ == "__main__":
-    app.run()
+app.run(debug=True)
