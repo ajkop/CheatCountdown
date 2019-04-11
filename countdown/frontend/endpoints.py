@@ -9,7 +9,7 @@ def word_search():
     return render_template('letter_input.html')
 
 
-@app.route('/words_result', methods=['POST'])
+@app.route('/words_result', methods=['GET', 'POST'])
 def word_results():
     letter_call = Letters()
     if request.method == 'POST':
