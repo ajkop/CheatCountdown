@@ -3,23 +3,33 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8">
     <link rel="stylesheet" type="text/css" href="/static/letter_input.css">
-    <h1>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <Script>
+    $(document).ready(function(){
+    $(".inputs").keyup(function () {
+        if (this.value.length == this.maxLength) {
+              $(this).next('.inputs').focus();
+                  }
+                  });
+    });
+    </Script>
+    <h1 style="text-align: center;">
         Countdown Word Lookup
     </h1>
 </head>
 <body>
-<form method="POST" action="https://thevoid.space/countdown/words_result" enctype="multipart/form-data">
-    <div class="container">
-        <input name='letter1' placeholder='Letter 1' maxlength="1" size="5"/>
-        <input name='letter2' placeholder='Letter 2' maxlength="1" size="5"/>
-        <input name='letter3' placeholder='Letter 3' maxlength="1" size="5"/>
-        <input name='letter4' placeholder='Letter 4' maxlength="1" size="5"/>
-        <input name='letter5' placeholder='Letter 5' maxlength="1" size="5"/>
-        <input name='letter6' placeholder='Letter 6' maxlength="1" size="5"/>
-        <input name='letter7' placeholder='Letter 7' maxlength="1" size="5"/>
-        <input name='letter8' placeholder='Letter 8' maxlength="1" size="5"/>
-        <input name='letter9' placeholder='Letter 9' maxlength="1" size="5"/>
-    </div>
+<form method="POST" action="http://countdowncheat.com/words_result" enctype="multipart/form-data">
+        <h2>Enter letters here</h2>
+        <input class="inputs" type="text" name='letter1' placeholder='Letter 1' maxlength="1"/>
+        <input class="inputs" type="text" name='letter2' placeholder='Letter 2' maxlength="1"/>
+        <input class="inputs" type="text" name='letter3' placeholder='Letter 3' maxlength="1"/>
+        <input class="inputs" type="text" name='letter4' placeholder='Letter 4' maxlength="1"/>
+        <input class="inputs" type="text" name='letter5' placeholder='Letter 5' maxlength="1"/>
+        <input class="inputs" type="text" name='letter6' placeholder='Letter 6' maxlength="1"/>
+        <input class="inputs" type="text" name='letter7' placeholder='Letter 7' maxlength="1"/>
+        <input class="inputs" type="text" name='letter8' placeholder='Letter 8' maxlength="1"/>
+        <input class="inputs" type="text" name='letter9' placeholder='Letter 9' maxlength="1"/>
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>

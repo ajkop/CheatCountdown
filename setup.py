@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='countdown',
-    install_requires=['pyenchant', 'requests'],
+    install_requires=['pyenchant', 'requests', 'flask'],
     version='1.0',
     packages=['countdown', 'countdown.frontend', 'countdown.exceptions', 'countdown.api_wrapper'],
     url='http://countdowncheat.com',

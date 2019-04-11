@@ -1,7 +1,7 @@
 import requests
 
 from countdown.exceptions import APIError, APIAuthenticationError
-from .. import config
+import countdown.config as config
 
 
 class Wrapper:

@@ -1,15 +1,21 @@
+import os
 import time
 from itertools import permutations
-
-import enchant
 
 from countdown.api_wrapper import Wrapper
 
 
 class Letters:
-    def __init__(self):
-        self.en_dictionary = enchant.Dict("en_US")
+    def __init__(self, word_file=None):
+        self.word_file = os.path.join(os.getcwd(), "countdown", "words/words_alpha.txt")
         self.api = Wrapper()
+        self.word_list = self.init_words(word_file)
+
+    def init_words(self, word_file=None):
+        word_input = word_file or self.word_file
+        with open(word_input) as input_file:
+            word_list = set([word.strip() for word in input_file.readlines()])
+        return word_list
 
     def word_find(self, letter_list, with_definition=False, limit=5):
         """
@@ -25,6 +31,7 @@ class Letters:
         :return: A dictionary of matched words ordered by their length.
         :rtype: `dict`
         """
+
         start_time = time.time()
 
         attempt_list = []
@@ -42,7 +49,7 @@ class Letters:
         choices = [''.join(out) for out in set(outcomes)]
 
         # Iterate over permutations and check if any of them are in our list of words. If so append to matches.
-        matches = [choice for choice in choices if self.en_dictionary.check(str(choice))]
+        matches = [choice for choice in choices if choice in self.word_list]
 
         # Strip duplicates from matches, then Grab the last $limit number of matches after sorting for length
         limited_matches = sorted(set(list(matches)), key=len, reverse=True)[:limit]
@@ -74,7 +81,8 @@ class Letters:
         letter_list = [letter for letter in word]
         outcomes = permutations(letter_list)
         choices = [''.join(out) for out in outcomes]
-        matches = [choice for choice in set(choices) if self.en_dictionary.check(choice)]
+        possible_matches = [stored_word for stored_word in self.word_list if len(stored_word) == len(word)]
+        matches = [choice for choice in set(choices) if choice in possible_matches]
 
         if with_definition:
             return {match: self.api.get_def(match) for match in matches}
