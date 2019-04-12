@@ -13,14 +13,31 @@ h2 {
    text-align: center;
 }
 
-table {
-    text-align:center;
-      border: 1px solid #ddd;
+#words {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#words th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #052ba8;
+  color: white;
+}
+
+#words td, #words th {
+  border: 1px solid #ddd;
   padding: 8px;
 }
 
+#words tr:hover {background-color: #ddd;}
+
+#words tr:nth-child(even){background-color: #d5483a;}
+
 p {
-   text-align: left;
+   text-align: bottom-left;
 }
 
 .inputs {
@@ -43,5 +60,5 @@ input[type=submit] {
 
 /* Add a background color to the submit button on mouse-over */
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #d5483a;
 }

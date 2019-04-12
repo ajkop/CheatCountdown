@@ -1,4 +1,6 @@
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <head>
     <link rel="stylesheet" type="text/css" href="/static/letter_input.css">
     <h1 > Top {{ limit }} words found </h1>
@@ -7,7 +9,7 @@
 <h2>
     Result
 </h2>
-    <table>
+    <table border="1" id="words">
         <tr>
             <th>Word</th>
             <th>Character Length</th>
@@ -19,8 +21,8 @@
                     <td > {{ word_data[key]['Length'] }} </td>
                     <td > {{ word_data[key]['Definition'] }} </td>
                 </tr>
+            {% endfor %}
     </table>
-    {{ words_table | safe}}
 <p> Time to run: {{ runtime }} </p>
 <p> Amount of permutations checked: {{ perm_count }}</p>
 </body>
