@@ -1,8 +1,6 @@
-import json
+from flask import Flask, render_template, request
 
 from countdown import Letters
-from flask import Flask, render_template, request
-from json2html import *
 
 app = Flask(__name__)
 
