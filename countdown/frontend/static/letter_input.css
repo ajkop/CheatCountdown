@@ -34,7 +34,9 @@ h2 {
 
 #words tr:hover {background-color: #ddd;}
 
-#words tr:nth-child(even){background-color: #d5483a;}
+#words tr:nth-child(even){background-color: #cc5500;}
+
+#words tr:nth-child(odd){background-color: #00FFFF;}
 
 p {
    text-align: bottom-left;
@@ -60,5 +62,5 @@ input[type=submit] {
 
 /* Add a background color to the submit button on mouse-over */
 input[type=submit]:hover {
-  background-color: #d5483a;
+  background-color: #cc5500;
 }
