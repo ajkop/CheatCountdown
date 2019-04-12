@@ -13,11 +13,11 @@
             <th>Character Length</th>
             <th>Definition</th>
         </tr>
-            {% for key in word_data['words'].keys() %}
+            {% for key in word_data.keys() %}
                 <tr>
                     <td> {{ key }} </td>
-                    <td > {{ word_data['words}[key]['Length'] }} </td>
-                    <td > {{ word_data['words}[key]['Definition'] }} </td>
+                    <td > {{ word_data[key]['Length'] }} </td>
+                    <td > {{ word_data[key]['Definition'] }} </td>
                 </tr>
     </table>
     {{ words_table | safe}}
