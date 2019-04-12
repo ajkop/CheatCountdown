@@ -4,11 +4,24 @@
     <h1 > Top {{ limit }} words found </h1>
 </head>
 <body>
-<p> Time to run: {{ runtime }} </p>
-<p> Amount of permutations checked: {{ perm_count }}</p>
 <h2>
     Result
 </h2>
-{{ words_table }}
+    <table>
+        <tr>
+            <th>Word</th>
+            <th>Character Length</th>
+            <th>Definition</th>
+        </tr>
+            {% for key in word_data['words'].keys() %}
+                <tr>
+                    <td> {{ key }} </td>
+                    <td > {{ word_data['words}[key]['Length'] }} </td>
+                    <td > {{ word_data['words}[key]['Definition'] }} </td>
+                </tr>
+    </table>
+    {{ words_table | safe}}
+<p> Time to run: {{ runtime }} </p>
+<p> Amount of permutations checked: {{ perm_count }}</p>
 </body>
 </html>
