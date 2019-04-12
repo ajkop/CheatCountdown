@@ -22,7 +22,7 @@ def word_results():
 
         result = letter_call.word_find(letters, with_definition=True)
 
-        words_table = json2html.convert(json=json.dumps(result['words']))
+        word_data = result['words']
 
         return render_template('result.html', runtime=result['runtime'], limit=len(result['words']),
-                               perm_count=result['permutations'], words_table=words_table)
+                               perm_count=result['permutations'], word_data=word_data)
