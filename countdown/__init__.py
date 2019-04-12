@@ -58,12 +58,13 @@ class Letters:
         if with_definition:
             # This comprehension just creates a dictionary of the matched words with word as the key and the len of the
             # word + definition as the value if a definition is found.
-            result = {match: [{'Length': len(match)}, {'Definition': self.api.get_def(match) or 'No definition found'}]
-                      for match in limited_matches}
+            result = {"words": {match: {'Length': len(match), 'Definition': self.api.get_def(match) or
+                                                              'No definition found'}
+                                for match in limited_matches}}
         else:
-            result = {match: [{'Length': len(match)}] for match in limited_matches}
+            result = {"words": {match: {'Length': len(match)} for match in limited_matches}}
 
-        result.update({'Runtime': time.time() - start_time})
+        result.update({'runtime': time.time() - start_time, 'permutations': len(choices)})
 
         return result
 

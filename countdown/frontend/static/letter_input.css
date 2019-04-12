@@ -6,6 +6,11 @@ form {
 
 h2 {
    color: #052ba8;
+   text-align: center;
+}
+
+p {
+   text-align: center;
 }
 
 .inputs {
