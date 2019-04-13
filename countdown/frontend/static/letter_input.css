@@ -34,7 +34,7 @@ h2 {
 
 #words tr:hover {background-color: #ddd;}
 
-#words tr:nth-child(even){background-color: #cc5500;}
+#words tr:nth-child(even){background-color: #FF7F50;}
 
 #words tr:nth-child(odd){background-color: #00FFFF;}
 
@@ -51,7 +51,7 @@ p {
 /* Style the submit button */
 input[type=submit] {
   width: 100%;
-  background-color: #052ba8;
+  background-color: #052ba8 ;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -62,5 +62,5 @@ input[type=submit] {
 
 /* Add a background color to the submit button on mouse-over */
 input[type=submit]:hover {
-  background-color: #cc5500;
+  background-color: #FF7F50;
 }

@@ -59,7 +59,7 @@ class Letters:
             # This comprehension just creates a dictionary of the matched words with word as the key and the len of the
             # word + definition as the value if a definition is found.
             result = {"words": {match: {'Length': len(match), 'Definition': self.api.get_def(match) or
-                                                              'No definition found'}
+                                                              ['No definition found']}
                                 for match in limited_matches}}
         else:
             result = {"words": {match: {'Length': len(match)} for match in limited_matches}}
@@ -82,10 +82,10 @@ class Letters:
         letter_list = [letter for letter in word]
         outcomes = permutations(letter_list)
         choices = [''.join(out) for out in outcomes]
-        possible_matches = [stored_word for stored_word in self.word_list if len(stored_word) == len(word)]
-        matches = [choice for choice in set(choices) if choice in possible_matches]
+        possible_matches = set([stored_word for stored_word in set(self.word_list) if len(stored_word) == len(word)])
+        matches = [choice for choice in set(choices) if choice != word and choice in possible_matches]
 
         if with_definition:
-            return {match: self.api.get_def(match) for match in matches}
+            return {match: self.api.get_def(match) or ['No Definition found'] for match in matches}
         else:
             return matches

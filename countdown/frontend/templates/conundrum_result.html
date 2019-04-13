@@ -7,27 +7,23 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
     <link rel="manifest" href="/static/favicons/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="/static/letter_input.css">
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/static/letter_input.css">
-    <h1 > Top {{ limit }} words found </h1>
+    <h1 style="text-align: center;">
+        Conundrum Lookup
+    </h1>
 </head>
 <body>
-<h2>
-    Result
-</h2>
-    <table border="1" id="words">
+        <h2>Anagrams Found</h2>
+        <table border="1" id="words">
         <tr>
             <th>Word</th>
-            <th>Character Length</th>
-            <th>Definition</th>
+            <th>Definitions</th>
         </tr>
-            {% for key in word_data.keys() %}
+            {% for key in anagrams.keys() %}
                 <tr>
                     <td> {{ key }} </td>
-                    <td > {{ word_data[key]['Length'] }} </td>
                     <td >
                         <ul>
-                            {% for definition in word_data[key]['Definition'] %}
+                            {% for definition in anagrams[key] %}
                             <li> {{ definition }} </li>
                             {% endfor %}
                         </ul>
@@ -35,7 +31,6 @@
                 </tr>
             {% endfor %}
     </table>
-<p> Time to run: {{ runtime }} </p>
-<p> Amount of permutations checked: {{ perm_count }}</p>
+</form>
 </body>
 </html>
