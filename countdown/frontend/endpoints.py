@@ -18,7 +18,9 @@ def word_results():
                    request.form.get('letter4'), request.form.get('letter5'), request.form.get('letter6'),
                    request.form.get('letter7'), request.form.get('letter8'), request.form.get('letter9')]
 
-        result = countdown.word_find(letters, with_definition=True)
+        lower_letters = [str(letter).lower() for letter in letters]
+
+        result = countdown.word_find(lower_letters, with_definition=True)
 
         word_data = result['words']
 
@@ -29,5 +31,5 @@ def word_results():
 @app.route('/conundrum/<string:word>')
 def conundrum(word):
     countdown = Letters()
-    anagrams = countdown.anagram(word, with_definition=True)
+    anagrams = countdown.anagram(word.lower(), with_definition=True)
     return render_template('conundrum_result.html', anagrams=anagrams)
