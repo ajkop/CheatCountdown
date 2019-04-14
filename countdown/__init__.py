@@ -14,7 +14,7 @@ class Letters:
     def init_words(self, word_file=None):
         word_input = word_file or self.word_file
         with open(word_input) as input_file:
-            word_list = set([word.strip() for word in input_file.readlines()])
+            word_list = set([word.strip().lower() for word in input_file.readlines()])
         return word_list
 
     def word_find(self, letter_list, with_definition=False, limit=5):
